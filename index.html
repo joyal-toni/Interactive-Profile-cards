@@ -2,14 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile Cards</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Profile Cards</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Profile Manager</h1>
-  <button id="add-profile-btn">Add Profile</button>
-  <div id="card-container"></div>
+  <h1>Interactive Profile Cards</h1>
+  <button id="addProfileBtn" class="btn">Add Profile</button>
+
+  <div id="cardContainer" class="card-container"></div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Add New Profile</h2>
+      <form id="profileForm">
+        <input type="text" id="nameInput" placeholder="Enter Name" required>
+        <input type="text" id="roleInput" placeholder="Enter Role" required>
+        <button type="submit" class="btn">Add Profile</button>
+      </form>
+    </div>
+  </div>
 
   <script type="module" src="main.js"></script>
 </body>
 </html>
+
+

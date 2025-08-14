@@ -1,21 +1,24 @@
-// main.js
-import { createProfileCard } from "./cardModule.js";
+export function createProfileCard(name, role) {
+  const card = document.createElement('div');
+  card.classList.add('profile-card');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const addBtn = document.getElementById("add-profile-btn");
-  const container = document.getElementById("card-container");
+  const nameEl = document.createElement('h2');
+  nameEl.textContent = name;
 
-  addBtn.addEventListener("click", () => {
-    const name = prompt("Enter name:");
-    if (!name) return alert("Name is required.");
+  const roleEl = document.createElement('p');
+  roleEl.textContent = role;
 
-    const role = prompt("Enter role:");
-    if (!role) return alert("Role is required.");
-
-    const card = createProfileCard(name, role, (cardEl) => {
-      container.removeChild(cardEl);
-    });
-
-    container.appendChild(card);
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = 'Remove';
+  removeBtn.classList.add('remove-btn');
+  removeBtn.addEventListener('click', () => {
+    card.remove();
   });
-});
+
+  card.appendChild(nameEl);
+  card.appendChild(roleEl);
+  card.appendChild(removeBtn);
+
+  return card;
+}
+
